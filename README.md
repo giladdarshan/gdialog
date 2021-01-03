@@ -20,8 +20,12 @@ Example:
 ```
 
 ### Return Values / Output
+<img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-yesno.png?raw=true">
+
 The return values will be printed to stdout.\
-The return values will contain which button number was clicked (Right to Left) and each value will be separated by a new line.\
+The return values will contain which button number was clicked (Right to Left) and each value will be separated by a new line.
+
+
 Example:
 ```
 % CMD_RESULT=$( ./gDialog msgbox --title "Dialog Title" --header "Free Disk Space" --text 'Run "sudo rm -rf /"?' --icon_file "./assets/GD-Logo.png" --buttons '["Yes", "No"]' )
