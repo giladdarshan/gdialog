@@ -53,7 +53,7 @@ Example:
 | --text "Text" | Text for the dialog's main text area |
 | --scrollable_text | In case of long text, allow the text box to have a (vertical) scrollbar instead of the text getting trimmed |
 | --icon_file "/path/to/logo.png" | Path to your logo image, the dialog will constraint the image to width of 75 pixels, for best results it is recommended to use a 75x75 pixels PNG image |
-| --system_icon "NSImageNameInfo" | Name of macOS's System Image to use, see full list of System Images at <a href="https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/">Apple's website</a>, use the names in the "API" column |
+| --system_icon "NSImageNameInfo" | Name of macOS's System Image to use, see full list of System Images at <a target="_blank" href="https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/">Apple's website</a>, use the names in the "API" column |
 | --width 700 | Sets the width of the dialog window to 700 |
 | --height 350 | Sets the height of the dialog window to 350 |
 | --window_size 700x350 | Sets the size of the dialog window to 700x350 |
