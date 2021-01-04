@@ -62,6 +62,7 @@ Example:
 | --allow_quit | Allows the user to close the dialog with CMD+Q, if the user closes the dialog with CMD+Q the dialog will return "-1" as the output to stdout |
 | --no_return | Suppress the dialog's output to stdout |
 | --focus | Makes the dialog window take focus and become the active window |
+<br /><br />
 
 ## Message Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-msgbox.png?raw=true">
@@ -74,6 +75,7 @@ Command Example:
 ```
 /path/to/gDialog msgbox --title "Dialog Title" --header "Dialog Header" --text "Dialog Text" --icon_file "/path/to/logo.png"
 ```
+<br /><br />
 
 ## Input Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-inputbox.png?raw=true">
@@ -92,6 +94,7 @@ Command Example:
 | --background_text "Background Text" | Background text for the input box |
 | --initial_text "Initial Text" | Initial text for the input box, can be used to prepopulate the inputbox with text |
 | --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
+<br /><br />
 
 ## Secure Input Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-secure-inputbox.png?raw=true">
@@ -110,6 +113,7 @@ Command Example:
 | --background_text "Background Text" | Background text for the input box |
 | --initial_text "Initial Text" | Initial text for the input box, can be used to prepopulate the inputbox with text |
 | --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
+<br /><br />
 
 ## Text Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-textbox.png?raw=true">
@@ -127,6 +131,7 @@ Command Example:
 | --- | --- |
 | --initial_text "Initial Text" | Initial text for the text box, can be used to prepopulate the text box with text |
 | --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
+<br /><br />
 
 ## Credentials Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-credentialsbox.png?raw=true">
@@ -153,6 +158,7 @@ Command Example:
 | --extra_field_background_text "Background Text" | Background text for the extra input field |
 | --extra_field_secured | Toggles the extra input field from plain text to secured input field |
 | --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
+<br /><br />
 
 ## HTML Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-htmlbox.png?raw=true">
@@ -201,7 +207,7 @@ HTML Page Example:
 | --- | --- |
 | --html_b64 "HTML file in Base64" | HTML page encoded in a Base64 string |
 | --file "/path/to/html_file.html" | Path to the HTML file |
-
+<br /><br />
 
 ## Progress Bar
 Template Name is ***progressbar***.\
@@ -268,7 +274,7 @@ kill $GDIALOG_PID
 exit 0
 ```
 <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-progressbar-indeterminate.gif?raw=true">
-<br /><br />
+<br />
 
 | Option | Description |
 | --- | --- |
