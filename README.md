@@ -36,12 +36,12 @@ Example:
 ```
 
 ### Table of Contents
-- [Global Options](#Global%20Options)
-- [Message Box](##Message%20Box)
-- [Input Box](##Input%20Box)
-- [Secure Input Box](##Secure%20Input%20Box)
-- [Text Box](##Text%20Box)
-- [Credentials Box](##Credentials%20Box)
+- [Global Options](#global-options)
+- [Message Box](#message-box)
+- [Input Box](#input-box)
+- [Secure Input Box](#secure-input-box)
+- [Text Box](#text-box)
+- [Credentials Box](#credentials-box)
 - [HTML Box](#html-box)
 
 
