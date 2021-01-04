@@ -42,7 +42,7 @@ Example:
 - [Secure Input Box](##Secure%20Input%20Box)
 - [Text Box](##Text%20Box)
 - [Credentials Box](##Credentials%20Box)
-- [HTML Box](##HTML-Box)
+- [HTML Box](#html-box)
 
 
 ### Global Options
