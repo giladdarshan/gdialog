@@ -44,6 +44,7 @@ Example:
 - [Credentials Box](#credentials-box)
 - [HTML Box](#html-box)
 - [Progress Bar](#progress-bar)
+- [Picker Box](#picker-box)
 
 
 ### Global Options
@@ -58,12 +59,12 @@ Example:
 | --width 700 | Sets the width of the dialog window to 700 |
 | --height 350 | Sets the height of the dialog window to 350 |
 | --window_size 700x350 | Sets the size of the dialog window to 700x350 |
-| --buttons '["Yes", "No"]' | Sets the dialog buttons from right to left, the buttons string must be with a single quote (') on the outside and the button names surrounded with double quotes ("), if you require to use double quotes on the outside, escape the internal double quotes with a backslash (\), for example: "[\"Yes\", \"No\"]" |
+| --buttons '["Yes", "No"]' | Sets the dialog buttons from right to left, the buttons string must be with a single quote (') on the outside and the button names surrounded with double quotes ("), if you require to use double quotes on the outside, escape the internal double quotes with a backslash (\\), for example: "[\\"Yes\\", \\"No\\"]" |
 | --allow_quit | Allows the user to close the dialog with CMD+Q, if the user closes the dialog with CMD+Q the dialog will return "-1" as the output to stdout |
 | --no_return | Suppress the dialog's output to stdout |
 | --focus | Makes the dialog window take focus and become the active window |
-<br /><br />
 
+<br /><br />
 ## Message Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-msgbox.png?raw=true">
 
@@ -94,8 +95,8 @@ Command Example:
 | --background_text "Background Text" | Background text for the input box |
 | --initial_text "Initial Text" | Initial text for the input box, can be used to prepopulate the inputbox with text |
 | --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
-<br /><br />
 
+<br /><br />
 ## Secure Input Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-secure-inputbox.png?raw=true">
 
@@ -113,8 +114,8 @@ Command Example:
 | --background_text "Background Text" | Background text for the input box |
 | --initial_text "Initial Text" | Initial text for the input box, can be used to prepopulate the inputbox with text |
 | --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
-<br /><br />
 
+<br /><br />
 ## Text Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-textbox.png?raw=true">
 
@@ -131,8 +132,8 @@ Command Example:
 | --- | --- |
 | --initial_text "Initial Text" | Initial text for the text box, can be used to prepopulate the text box with text |
 | --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
-<br /><br />
 
+<br /><br />
 ## Credentials Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-credentialsbox.png?raw=true">
 
@@ -158,8 +159,8 @@ Command Example:
 | --extra_field_background_text "Background Text" | Background text for the extra input field |
 | --extra_field_secured | Toggles the extra input field from plain text to secured input field |
 | --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
-<br /><br />
 
+<br /><br />
 ## HTML Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-htmlbox.png?raw=true">
 
@@ -207,8 +208,8 @@ HTML Page Example:
 | --- | --- |
 | --html_b64 "HTML file in Base64" | HTML page encoded in a Base64 string |
 | --file "/path/to/html_file.html" | Path to the HTML file |
-<br /><br />
 
+<br /><br />
 ## Progress Bar
 Template Name is ***progressbar***.\
 Displays a progress bar, depends on the options used, can display a progress bar that fills up, or, an indeterminate progress bar.\
@@ -280,3 +281,29 @@ exit 0
 | --- | --- |
 | --indeterminate | Displays an indeterminate progress bar |
 | --stoppable | Adds a "Stop" button to the progress bar |
+
+<br /><br />
+## Picker Box
+Template Name is ***pickerbox***.\
+Displays a dialog window with either a drop down menu (default), radio buttons or segmented buttons, depends on the options used.
+
+| Drop Down Menu | Radio Buttons | Segmented Buttons |
+| --- | --- | --- |
+| <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-pickerbox-dropdown.gif?raw=true"> | <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-pickerbox-radio.png?raw=true"> | <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-pickerbox-segmented.gif?raw=true"> |
+ 
+Command Example:
+```
+# Drop Down Menu
+/path/to/gDialog pickerbox --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Select a number:" --items '["1", "2", "3"]' --buttons '["OK", "Cancel"]'
+
+# Radio Buttons
+/path/to/gDialog pickerbox --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Select a number:" --items '["1", "2"]' --buttons '["OK", "Cancel"]' --style radio
+
+# Segmented Buttons
+/path/to/gDialog pickerbox --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Select a number:" --items '["1", "2"]' --buttons '["OK", "Cancel"]' --style segmented
+```
+
+| Option | Description |
+| --- | --- |
+| --items '["Item 1","Item 2"]' | The items to display in the picker box, the string must be with a single quote (') on the outside and the item names surrounded with double quotes ("), if you require to use double quotes on the outside, escape the internal double quotes with a backslash (\\), for example: "[\\"Item 1\\", \\"Item 2\\"]" |
+| --style "style" | Defines the style of the picker box, options are *default*, *radio* and *segmented*. "default" style is the drop down menu |
