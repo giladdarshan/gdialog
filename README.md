@@ -216,6 +216,9 @@ Displays a progress bar, depends on the options used, can display a progress bar
 The following global options are not available in this template:\
 header, scrollable_text and buttons.
 
+| Regular Progress Bar | Indeterminate Progress Bar |
+| --- | --- |
+| <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-progressbar.gif?raw=true"> | <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-progressbar-indeterminate.gif?raw=true"> |
 
 #### Regular Progress Bar Example:
 ```
@@ -254,7 +257,6 @@ rm -f "${PIPE_PATH}"
 # Exit
 exit 0
 ```
-<img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-progressbar.gif?raw=true">
 
 #### Indeterminate Progress Bar Example:
 ```
@@ -274,7 +276,6 @@ kill $GDIALOG_PID
 # Exit
 exit 0
 ```
-<img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-progressbar-indeterminate.gif?raw=true">
 <br />
 
 | Option | Description |
