@@ -45,6 +45,9 @@ Example:
 - [HTML Box](#html-box)
 - [Progress Bar](#progress-bar)
 - [Picker Box](#picker-box)
+- [File Select](#file-select)
+- [File Save](#file-save)
+- [Banner Box](#banner-box)
 
 
 ### Global Options
@@ -59,7 +62,7 @@ Example:
 | --width 700 | Sets the width of the dialog window to 700 |
 | --height 350 | Sets the height of the dialog window to 350 |
 | --window_size 700x350 | Sets the size of the dialog window to 700x350 |
-| --buttons '["Yes", "No"]' | Sets the dialog buttons from right to left, the buttons string must be with a single quote (') on the outside and the button names surrounded with double quotes ("), if you require to use double quotes on the outside, escape the internal double quotes with a backslash (\\), for example: "[\\"Yes\\", \\"No\\"]" |
+| --buttons '["Yes", "No"]' | Sets the dialog buttons from right to left. The buttons string must be with a single quote (') on the outside and the button names surrounded with double quotes ("), if you require to use double quotes on the outside, escape the internal double quotes with a backslash (\\), for example: "[\\"Yes\\", \\"No\\"]" |
 | --allow_quit | Allows the user to close the dialog with CMD+Q, if the user closes the dialog with CMD+Q the dialog will return "-1" as the output to stdout |
 | --no_return | Suppress the dialog's output to stdout |
 | --focus | Makes the dialog window take focus and become the active window |
@@ -94,7 +97,7 @@ Command Example:
 | --- | --- |
 | --background_text "Background Text" | Background text for the input box |
 | --initial_text "Initial Text" | Initial text for the input box, can be used to prepopulate the inputbox with text |
-| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
+| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\\n" for example) |
 
 <br /><br />
 ## Secure Input Box
@@ -113,7 +116,7 @@ Command Example:
 | --- | --- |
 | --background_text "Background Text" | Background text for the input box |
 | --initial_text "Initial Text" | Initial text for the input box, can be used to prepopulate the inputbox with text |
-| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
+| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\\n" for example) |
 
 <br /><br />
 ## Text Box
@@ -131,7 +134,7 @@ Command Example:
 | Option | Description |
 | --- | --- |
 | --initial_text "Initial Text" | Initial text for the text box, can be used to prepopulate the text box with text |
-| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
+| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\\n" for example) |
 
 <br /><br />
 ## Credentials Box
@@ -158,7 +161,7 @@ Command Example:
 | --extra_field_initial_text "Initial Text" | Initial text for the extra input field |
 | --extra_field_background_text "Background Text" | Background text for the extra input field |
 | --extra_field_secured | Toggles the extra input field from plain text to secured input field |
-| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
+| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\\n" for example) |
 
 <br /><br />
 ## HTML Box
@@ -306,5 +309,70 @@ Command Example:
 
 | Option | Description |
 | --- | --- |
-| --items '["Item 1","Item 2"]' | The items to display in the picker box, the string must be with a single quote (') on the outside and the item names surrounded with double quotes ("), if you require to use double quotes on the outside, escape the internal double quotes with a backslash (\\), for example: "[\\"Item 1\\", \\"Item 2\\"]" |
+| --items '["Item 1","Item 2"]' | The items to display in the picker box. The string must be with a single quote (') on the outside and the item names surrounded with double quotes ("), if you require to use double quotes on the outside, escape the internal double quotes with a backslash (\\), for example: "[\\"Item 1\\", \\"Item 2\\"]" |
 | --style "style" | Defines the style of the picker box, options are *default*, *radio* and *segmented*. "default" style is the drop down menu |
+
+<br /><br />
+## File Select
+<img align="right" width="340" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-fileselect.png?raw=true">
+
+Template Name is ***fileselect***.\
+Displays a dialog window with an input field and a button to open the file select dialog.<br />
+<img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-fileselect-2.png?raw=true">
+<br /><br />
+ 
+Command Example:
+```
+/path/to/gDialog fileselect --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Please select a file" --buttons '["OK", "Cancel"]'
+```
+
+| Option | Description |
+| --- | --- |
+| --with_file "/starting/path" | Starts the file select dialog with the specified file alrady selected |
+| --with_directory "/starting/directory" | Starts the file select dialog showing the specified directory |
+| --with_extensions '["jpg", "png"]' | Limits file selection to specified file extensions. The string must be with a single quote (') on the outside and the file extension names surrounded with double quotes ("), if you require to use double quotes on the outside, escape the internal double quotes with a backslash (\\), for example: "[\\"jpg\\", \\"png\\"]" |
+| --packages_as_directories | Treats installation packages as directories |
+| --select_directories | Allows the user to select directories |
+| --select_only_directories | Allows the user to select **only** directories |
+| --select_multiple | Allows the user to select multiple files |
+
+<br /><br />
+## File Save
+<img align="right" width="340" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-filesave.png?raw=true">
+
+Template Name is ***filesave***.\
+Displays a dialog window with an input field and a button to open the file save dialog.<br />
+<img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-filesave-2.png?raw=true">
+<br /><br />
+ 
+Command Example:
+```
+/path/to/gDialog filesave --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Please select where to save the file" --buttons '["OK", "Cancel"]'
+```
+
+| Option | Description |
+| --- | --- |
+| --with_file "/starting/path" | Starts the file select dialog with the specified file alrady selected |
+| --with_directory "/starting/directory" | Starts the file select dialog showing the specified directory |
+| --with_extensions '["jpg", "png"]' | Limits file selection to specified file extensions. The string must be with a single quote (') on the outside and the file extension names surrounded with double quotes ("), if you require to use double quotes on the outside, escape the internal double quotes with a backslash (\\), for example: "[\\"jpg\\", \\"png\\"]" |
+| --packages_as_directories | Treats installation packages as directories |
+| --no_create_directories | Prevents the user from creating directories |
+
+<br /><br />
+## Banner Box
+Template Name is ***bannerbox***.\
+Displays a banner dialog window in the top right corner of the screen with up to two buttons.\
+**NOTE:** This template is not utilizing macOS's notification center.
+
+| Banner Box | Banner Box with one button | Banner Box with two buttons |
+| --- | --- | --- |
+| <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-bannerbox.png?raw=true"> | <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-bannerbox-one-button.png?raw=true"> | <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-bannerbox-two-buttons.png?raw=true"> |
+ 
+Command Example:
+```
+/path/to/gDialog bannerbox --icon_file "/path/to/logo.png" --header "Header" --text "Banner Box with two buttons" --buttons '["OK", "Cancel"]'
+```
+
+| Option | Description |
+| --- | --- |
+| --background_color "#000000" | Specify a background color in [hex color code](https://htmlcolorcodes.com/) |
