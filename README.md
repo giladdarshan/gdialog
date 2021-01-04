@@ -36,16 +36,15 @@ Example:
 ```
 
 ### Table of Contents
-- [Global Options](###Global%20Options)
-- [Message Box](###Message%20Box)
-- [Input Box](###Input%20Box)
-```
-- [](###%20)
-- [](###%20)
-- [](###%20)
-- [](###%20)
-- [](###%20)
-```
+- [Global Options](#Global%20Options)
+- [Message Box](##Message%20Box)
+- [Input Box](##Input%20Box)
+- [Secure Input Box](##Secure%20Input%20Box)
+- [Text Box](##Text%20Box)
+- [Credentials Box](##Credentials%20Box)
+- [HTML Box](#HTML%20Box)
+
+
 ### Global Options
 | Option | Description |
 | --- | --- |
@@ -97,7 +96,7 @@ Command Example:
 
 Template Name is ***secure-inputbox***.\
 Displays an input box with one secured field, input is masked for use cases like passwords, output is still in plain text.
-<br /><br /><br />
+<br /><br />
 
 Command Example:
 ```
@@ -114,7 +113,7 @@ Command Example:
 
 Template Name is ***textbox***.\
 Displays a text box.
-<br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br />
 
 Command Example:
 ```
@@ -156,7 +155,7 @@ Command Example:
 Template Name is ***htmlbox***.\
 Displays a window which allows to load HTML for advanced forms and GUI.\
 The following global options are not available in this template:\
-header, text, icon_file, system_icon, buttons and scrollable_text.\
+header, text, icon_file, system_icon, buttons and scrollable_text.
 
 To return text from the dialog, use the javascript function print("text").
 To close the dialog, use the javascript function quit().
