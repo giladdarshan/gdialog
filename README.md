@@ -43,6 +43,7 @@ Example:
 - [Text Box](#text-box)
 - [Credentials Box](#credentials-box)
 - [HTML Box](#html-box)
+- [Progress Bar](#progress-bar)
 
 
 ### Global Options
@@ -60,7 +61,7 @@ Example:
 | --buttons '["Yes", "No"]' | Sets the dialog buttons from right to left, the buttons string must be with a single quote (') on the outside and the button names surrounded with double quotes ("), if you require to use double quotes on the outside, escape the internal double quotes with a backslash (\), for example: "[\"Yes\", \"No\"]" |
 | --allow_quit | Allows the user to close the dialog with CMD+Q, if the user closes the dialog with CMD+Q the dialog will return "-1" as the output to stdout |
 | --no_return | Suppress the dialog's output to stdout |
-| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
+| --focus | Makes the dialog window take focus and become the active window |
 
 ## Message Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-msgbox.png?raw=true">
@@ -90,6 +91,7 @@ Command Example:
 | --- | --- |
 | --background_text "Background Text" | Background text for the input box |
 | --initial_text "Initial Text" | Initial text for the input box, can be used to prepopulate the inputbox with text |
+| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
 
 ## Secure Input Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-secure-inputbox.png?raw=true">
@@ -107,6 +109,7 @@ Command Example:
 | --- | --- |
 | --background_text "Background Text" | Background text for the input box |
 | --initial_text "Initial Text" | Initial text for the input box, can be used to prepopulate the inputbox with text |
+| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
 
 ## Text Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-textbox.png?raw=true">
@@ -123,6 +126,7 @@ Command Example:
 | Option | Description |
 | --- | --- |
 | --initial_text "Initial Text" | Initial text for the text box, can be used to prepopulate the text box with text |
+| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
 
 ## Credentials Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-credentialsbox.png?raw=true">
@@ -148,6 +152,7 @@ Command Example:
 | --extra_field_initial_text "Initial Text" | Initial text for the extra input field |
 | --extra_field_background_text "Background Text" | Background text for the extra input field |
 | --extra_field_secured | Toggles the extra input field from plain text to secured input field |
+| --encode_text | Encodes returned values in Base64 to ensure environments like Bash won't interpet special characters and combinations ("\n" for example) |
 
 ## HTML Box
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-htmlbox.png?raw=true">
@@ -196,3 +201,76 @@ HTML Page Example:
 | --- | --- |
 | --html_b64 "HTML file in Base64" | HTML page encoded in a Base64 string |
 | --file "/path/to/html_file.html" | Path to the HTML file |
+
+
+## Progress Bar
+Template Name is ***progressbar***.\
+Displays a progress bar, depends on the options used, can display a progress bar that fills up, or, an indeterminate progress bar.\
+The following global options are not available in this template:\
+header, scrollable_text and buttons.
+
+
+#### Regular Progress Bar Example:
+```
+# Variables
+PIPE_PATH="/private/tmp/apipe"
+GDIALOG_PID=""
+
+# Create a named pipe
+rm -f "${PIPE_PATH}"
+mkfifo "${PIPE_PATH}"
+
+# Start gDialog in the background which takes the input (stdin) from the named pipe
+/path/to/gDialog progressbar --icon_file "/path/to/logo.png" --title "Death Star Construction" --text "Please wait..." < "${PIPE_PATH}" &
+GDIALOG_PID=$!
+# Associate file descriptor 3 with the pipe and start the progress bar
+exec 3<> "${PIPE_PATH}"
+
+
+# Do stuff
+sleep 1
+# Send progress to the progress bar, the line must start with the progress percentage and then the text separated by a space, if only the progress percentage is provided, the initial text will not change
+echo "60 Building The Death Star" >&3
+sleep 2
+echo "100 The Death Star construction is completed" >&3
+
+# Close the progress bar by sending an "EOF" message and then closing file descriptor 3
+echo "EOF" >&3
+exec 3>&-
+
+# Wait for the background job to exit, or, kill the process saved in the variable "GDIALOG_PID"
+wait
+
+# Delete the named pipe
+rm -f "${PIPE_PATH}"
+
+# Exit
+exit 0
+```
+<img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-progressbar.gif?raw=true">
+
+#### Indeterminate Progress Bar Example:
+```
+# Variables
+GDIALOG_PID=""
+
+# Start gDialog in the background, if you would like to update the text, use the example of the regular progress bar and add the "--indeterminate"
+/path/to/gDialog progressbar --icon_file "/path/to/logo.png" --title "Attack" --text "Attacking The Death Star" --indeterminate 2>&1 > /dev/null &
+GDIALOG_PID=$!
+
+# Do stuff
+sleep 15
+
+# Kill the process saved in the variable "GDIALOG_PID"
+kill $GDIALOG_PID
+
+# Exit
+exit 0
+```
+<img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-progressbar-indeterminate.gif?raw=true">
+<br /><br />
+
+| Option | Description |
+| --- | --- |
+| --indeterminate | Displays an indeterminate progress bar |
+| --stoppable | Adds a "Stop" button to the progress bar |
