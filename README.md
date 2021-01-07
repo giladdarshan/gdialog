@@ -1,12 +1,19 @@
 # gDialog
-Display macOS dialogs from terminal and scripts.\
+Display macOS dialogs from terminal and scripts, capable of displaying advanced dialogs and forms using the *HTML Box* template.\
+gDialog is using the system color scheme, if the Mac has Dark Mode turned on, the background will be dark, if Dark Mode is turned off, the background will be bright.
+
 Supported on:
 * macOS Catalina (10.15)
 * macOS Big Sur (11.x)
 
 ### Current Status
-gDialog is currently in final stages of development to ensure all the features are working properly.\
+gDialog is currently in development.\
 Syntax may change before production release.
+
+### Installing gDialog
+Download and install the package from the release page.\
+gDialog will be installed to `/usr/local/gDialog/`.\
+Executable Path: `/usr/local/gDialog/gDialog`
 
 ### Executing gDialog
 gDialog is executed in the following format:
