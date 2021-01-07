@@ -10,6 +10,9 @@ Supported on:
 gDialog is currently in development.\
 Syntax may change before production release.
 
+### Downloading gDialog
+[Download gDialog v0.0.1](https://github.com/giladdarshan/gdialog/releases/download/v0.0.1/gDialog_v0.0.1.pkg)
+
 ### Installing gDialog
 Download and install the package from the release page.\
 gDialog will be installed to `/usr/local/gDialog/`.\
