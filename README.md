@@ -13,8 +13,6 @@ Supported on:
 
 ### Current Status
 gDialog is now in production release.\
-Application Name: `gDialog.app`\
-Bundle Identifier: `com.gilad.gDialog`
 
 ### Downloading gDialog
 [Download gDialog v1.0.0](https://github.com/giladdarshan/gdialog/releases/download/v1.0.0/gDialog_v1.0.0.pkg)
@@ -22,6 +20,8 @@ Bundle Identifier: `com.gilad.gDialog`
 ### Installing gDialog
 Download and install the package from the release page or from the link above.\
 gDialog will be installed to `/usr/local/gDialog/`\
+Application Name: `gDialog.app`\
+Bundle Identifier: `com.gilad.gDialog`
 Executable Path: `/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog`
 
 ### Executing gDialog
