@@ -8,32 +8,32 @@ gDialog is using the system color scheme, if the Mac has Dark Mode turned on, th
 | <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-light-mode.png?raw=true"> | <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-dark-mode.png?raw=true"> |
 
 Supported on:
-* macOS Catalina (10.15)
-* macOS Big Sur (11.x)
+* macOS Catalina (10.15.x)
+* macOS Big Sur (11.x) - Intel or M1 with Rosetta
 
 ### Current Status
-gDialog is currently in development.\
-Syntax may change before production release.\
-Source code will be uploaded before production release.
+gDialog is now in production release.\
+Application Name: `gDialog.app`\
+Bundle Identifier: `com.gilad.gDialog`
 
 ### Downloading gDialog
-[Download gDialog v0.1.0](https://github.com/giladdarshan/gdialog/releases/download/v0.1/gDialog_v0.1.0.pkg)
+[Download gDialog v1.0.0](https://github.com/giladdarshan/gdialog/releases/download/v1.0.0/gDialog_v1.0.0.pkg)
 
 ### Installing gDialog
-Download and install the package from the release page.\
+Download and install the package from the release page or from the link above.\
 gDialog will be installed to `/usr/local/gDialog/`\
-Executable Path: `/usr/local/gDialog/gDialog`
+Executable Path: `/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog`
 
 ### Executing gDialog
 gDialog is executed in the following format:
 ```
-/usr/local/gDialog/gDialog template_name options
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog template_name options
 ```
 The "template_name" parameter is always required in order to specify which dialog template to use.\
 If the option "--buttons" is not provided, an "OK" button will be added by default.\
 Example:
 ```
-/usr/local/gDialog/gDialog msgbox --title "Dialog Title" --header "Dialog Header" --text "Dialog Text" --icon_file "/path/to/logo.png"
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog msgbox --title "Dialog Title" --header "Dialog Header" --text "Dialog Text" --icon_file "/path/to/logo.png"
 ```
 
 ### Return Values / Output
@@ -64,6 +64,7 @@ Example:
 - [File Select](#file-select)
 - [File Save](#file-save)
 - [Banner Box](#banner-box)
+- [Notification](#notification-box)
 
 
 ### Global Options
@@ -82,6 +83,8 @@ Example:
 | --allow_quit | Allows the user to close the dialog with CMD+Q, if the user closes the dialog with CMD+Q the dialog will return "-1" as the output to stdout |
 | --no_return | Suppress the dialog's output to stdout |
 | --focus | Makes the dialog window take focus and become the active window |
+| --timeout 300 | Sets the dialog timeout to 300 seconds (5 minutes) |
+| --static | Prevents the user from being able to move / drag the dialog window |
 
 <br /><br />
 ## Message Box
@@ -93,7 +96,7 @@ Displays a message box.
 
 Command Example:
 ```
-/usr/local/gDialog/gDialog msgbox --title "Dialog Title" --header "Dialog Header" --text "Dialog Text" --icon_file "/path/to/logo.png"
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog msgbox --title "Dialog Title" --header "Dialog Header" --text "Dialog Text" --icon_file "/path/to/logo.png" --focus
 ```
 <br /><br />
 
@@ -106,7 +109,7 @@ Displays an input box with one field.
 
 Command Example:
 ```
-/usr/local/gDialog/gDialog inputbox --title "Title" --header "Header" --text "Enter your name:" --background_text "Full Name" --icon_file "/path/to/logo.png"
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog inputbox --title "Title" --header "Header" --text "Enter your name:" --background_text "Full Name" --icon_file "/path/to/logo.png" --focus
 ```
 
 | Option | Description |
@@ -125,7 +128,7 @@ Displays an input box with one secured field, input is masked for use cases like
 
 Command Example:
 ```
-/usr/local/gDialog/gDialog secure-inputbox --title "Title" --header "Header" --text "Enter your password:" --icon_file "/path/to/logo.png"
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog secure-inputbox --title "Title" --header "Header" --text "Enter your password:" --icon_file "/path/to/logo.png" --focus
 ```
 
 | Option | Description |
@@ -144,7 +147,7 @@ Displays a text box.
 
 Command Example:
 ```
-/usr/local/gDialog/gDialog textbox --title "Title" --header "Header" --text "Do you agree to the T&C?" --icon_file "/path/to/logo.png" --buttons '["Agree", "Cancel"]' --initial_text "Lorem ipsum dolor sit amet, ...lacinia. Cras." --window_size 500x300
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog textbox --title "Title" --header "Header" --text "Do you agree to the T&C?" --icon_file "/path/to/logo.png" --buttons '["Agree", "Cancel"]' --initial_text "Lorem ipsum dolor sit amet, ...lacinia. Cras." --window_size 500x300 --focus
 ```
 
 | Option | Description |
@@ -162,7 +165,7 @@ Displays an input box with 2-3 fields, a plain input field, secured input field 
 
 Command Example:
 ```
-/usr/local/gDialog/gDialog credentialsbox --title "Title" --header "Header" --text "Enter your corporate credentials:" --icon_file "/path/to/logo.png"
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog credentialsbox --title "Title" --header "Header" --text "Enter your corporate credentials:" --icon_file "/path/to/logo.png" --focus
 ```
 
 | Option | Description |
@@ -193,7 +196,7 @@ To close the dialog, use the javascript function quit().
 
 Command Example:
 ```
-/usr/local/gDialog/gDialog htmlbox --title "gDialog - HTML Box" --file "/path/to/html_file.html"
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog htmlbox --title "gDialog - HTML Box" --file "/path/to/html_file.html" --focus
 ```
 
 HTML Page Example:
@@ -250,7 +253,7 @@ rm -f "${PIPE_PATH}"
 mkfifo "${PIPE_PATH}"
 
 # Start gDialog in the background which takes the input (stdin) from the named pipe
-/usr/local/gDialog/gDialog progressbar --icon_file "/path/to/logo.png" --title "Death Star Construction" --text "Please wait..." < "${PIPE_PATH}" &
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog progressbar --icon_file "/path/to/logo.png" --title "Death Star Construction" --text "Please wait..." --focus < "${PIPE_PATH}" &
 GDIALOG_PID=$!
 # Associate file descriptor 3 with the pipe and start the progress bar
 exec 3<> "${PIPE_PATH}"
@@ -283,7 +286,7 @@ exit 0
 GDIALOG_PID=""
 
 # Start gDialog in the background, if you would like to update the text, use the example of the regular progress bar and add the "--indeterminate"
-/usr/local/gDialog/gDialog progressbar --icon_file "/path/to/logo.png" --title "Attack" --text "Attacking The Death Star" --indeterminate 2>&1 > /dev/null &
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog progressbar --icon_file "/path/to/logo.png" --title "Attack" --text "Attacking The Death Star" --indeterminate --focus 2>&1 > /dev/null &
 GDIALOG_PID=$!
 
 # Do stuff
@@ -313,14 +316,15 @@ Displays a dialog window with either a drop down menu (default), radio buttons o
  
 Command Example:
 ```
+GDIALOG_BIN="/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog"
 # Drop Down Menu
-/usr/local/gDialog/gDialog pickerbox --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Select a number:" --items '["1", "2", "3"]' --buttons '["OK", "Cancel"]'
+"${GDIALOG_BIN}" pickerbox --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Select a number:" --items '["1", "2", "3"]' --buttons '["OK", "Cancel"]' --focus
 
 # Radio Buttons
-/usr/local/gDialog/gDialog pickerbox --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Select a number:" --items '["1", "2"]' --buttons '["OK", "Cancel"]' --style radio
+"${GDIALOG_BIN}" pickerbox --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Select a number:" --items '["1", "2"]' --buttons '["OK", "Cancel"]' --style radio --focus
 
 # Segmented Buttons
-/usr/local/gDialog/gDialog pickerbox --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Select a number:" --items '["1", "2"]' --buttons '["OK", "Cancel"]' --style segmented
+"${GDIALOG_BIN}" pickerbox --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Select a number:" --items '["1", "2"]' --buttons '["OK", "Cancel"]' --style segmented --focus
 ```
 
 | Option | Description |
@@ -339,7 +343,7 @@ Displays a dialog window with an input field and a button to open the file selec
  
 Command Example:
 ```
-/usr/local/gDialog/gDialog fileselect --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Please select a file" --buttons '["OK", "Cancel"]'
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog fileselect --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Please select a file" --buttons '["OK", "Cancel"]' --focus
 ```
 
 | Option | Description |
@@ -363,7 +367,7 @@ Displays a dialog window with an input field and a button to open the file save 
  
 Command Example:
 ```
-/usr/local/gDialog/gDialog filesave --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Please select where to save the file" --buttons '["OK", "Cancel"]'
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog filesave --icon_file "/path/to/logo.png" --title "Title" --header "Header" --text "Please select where to save the file" --buttons '["OK", "Cancel"]' --focus
 ```
 
 | Option | Description |
@@ -386,9 +390,34 @@ Displays a banner dialog window in the top right corner of the screen with up to
  
 Command Example:
 ```
-/usr/local/gDialog/gDialog bannerbox --icon_file "/path/to/logo.png" --header "Header" --text "Banner Box with two buttons" --buttons '["OK", "Cancel"]'
+/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog bannerbox --icon_file "/path/to/logo.png" --header "Header" --text "Banner Box with two buttons" --buttons '["OK", "Cancel"]' --focus
 ```
 
 | Option | Description |
 | --- | --- |
 | --background_color "#000000" | Specify a background color in [hex color code](https://htmlcolorcodes.com/) |
+
+<br /><br />
+## Notification
+Template Name is ***notification***.\
+Sends a notification to macOS's notification center.\
+The notification must be sent as the user, to do so, you can use the `launchctl asuser` command as shown in the example below.\
+Unless gDialog is pre-approved for notifications via the [MDM notifications payload](https://support.apple.com/guide/mdm/notifications-payload-settings-mdm46b6547ba/web), the user will get a notification asking to approve gDialog to present notifications:\
+<img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-notification-request.png?raw=true">
+<br />
+The following global options are not available in this template:\
+icon_file, system_icon,  buttons, width, height, window_size, allow_quit, no_return, focus and scrollable_text.\
+
+| macOS Big Sur | macOS Catalina |
+| --- | --- |
+| <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-notification-bigsur.png?raw=true"> | <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-notification-catalina.png?raw=true"> |
+ 
+Command Example:
+```
+USER_UID=$(id -u $(stat -f%Su /dev/console))
+launchctl asuser $USER_UID /usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog notification --title "Title" --header "Header" --text "Notification Text"
+```
+
+| Option | Description |
+| --- | --- |
+| --dont_wait | Don't wait for for the notification to be seen by the user |
