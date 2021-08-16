@@ -12,7 +12,7 @@ Supported on:
 * macOS Big Sur (11.x) - Intel or M1 with Rosetta
 
 ### Current Status
-gDialog is now in production release.\
+gDialog is now in production release.
 
 ### Downloading gDialog
 [Download gDialog v1.0.0](https://github.com/giladdarshan/gdialog/releases/download/v1.0.0/gDialog_v1.0.0.pkg)
@@ -64,7 +64,7 @@ Example:
 - [File Select](#file-select)
 - [File Save](#file-save)
 - [Banner Box](#banner-box)
-- [Notification](#notification-box)
+- [Notification](#notification)
 
 
 ### Global Options
@@ -404,14 +404,16 @@ Sends a notification to macOS's notification center.\
 The notification must be sent as the user, to do so, you can use the `launchctl asuser` command as shown in the example below.\
 Unless gDialog is pre-approved for notifications via the [MDM notifications payload](https://support.apple.com/guide/mdm/notifications-payload-settings-mdm46b6547ba/web), the user will get a notification asking to approve gDialog to present notifications:\
 <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-notification-request.png?raw=true">
-<br />
-The following global options are not available in this template:\
-icon_file, system_icon,  buttons, width, height, window_size, allow_quit, no_return, focus and scrollable_text.\
-
+<br /><br />
 | macOS Big Sur | macOS Catalina |
 | --- | --- |
 | <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-notification-bigsur.png?raw=true"> | <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-notification-catalina.png?raw=true"> |
- 
+
+<br />
+The following global options are not available in this template:<br />
+icon_file, system_icon,  buttons, width, height, window_size, allow_quit, no_return, focus and scrollable_text.
+<br /><br />
+
 Command Example:
 ```
 USER_UID=$(id -u $(stat -f%Su /dev/console))
