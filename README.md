@@ -21,7 +21,7 @@ gDialog is now in production release.
 Download and install the package from the release page or from the link above.\
 gDialog will be installed to `/usr/local/gDialog/`\
 Application Name: `gDialog.app`\
-Bundle Identifier: `com.gilad.gDialog`
+Bundle Identifier: `com.gilad.gDialog`\
 Executable Path: `/usr/local/gDialog/gDialog.app/Contents/MacOS/gDialog`
 
 ### Executing gDialog
