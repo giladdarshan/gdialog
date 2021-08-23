@@ -12,11 +12,11 @@ Supported on:
 * macOS Big Sur (11.x) - Intel or M1 with Rosetta
 
 ### Current Status
-gDialog is available as a Node.js module and as a [standalone application](https://github.com/giladdarshan/gdialog).
+gDialog is available as a Node.js module and as a [standalone application](https://github.com/giladdarshan/gdialog).\
 **NOTE:** NPM Package is currently pending publish to registry.
 
 ### Installing gDialog
-Install the gDialog package with the command:\
+Install the gDialog package with the command:
 ```
 npm install -P gdialog
 ```
@@ -106,7 +106,7 @@ The return values will contain which button number was clicked (Right to Left) a
 - [File Select](#file-select)
 - [File Save](#file-save)
 - [Banner Box](#banner-box)
-- [Notification](#notification-box)
+- [Notification](#notification)
 
 
 ### Global Options
@@ -538,12 +538,12 @@ console.log(dialog.runSync(options));
 ## Notification
 Template Name is ***notification***.\
 Sends a notification to macOS's notification center.\
-**NOTE:** Notifications will not work from unsigned non-application bundles (.app), in order to use the notifications in a Node.js project, it must be compiled into a a signed application with a Bundle ID, it is recommended to use the gDialog app for [notifications](https://github.com/giladdarshan/gdialog#notification)
-**NOTE:**Unless node is pre-approved for notifications via the [MDM notifications payload](https://support.apple.com/guide/mdm/notifications-payload-settings-mdm46b6547ba/web), the user will get a notification asking to approve node to present notifications:\
+**NOTE:** Notifications will not work from unsigned non-application bundles (.app), in order to use the notifications in a Node.js project, it must be compiled into a a signed application with a Bundle ID, it is recommended to use the gDialog app for [notifications](https://github.com/giladdarshan/gdialog#notification)\
+**NOTE:** Unless node is pre-approved for notifications via the [MDM notifications payload](https://support.apple.com/guide/mdm/notifications-payload-settings-mdm46b6547ba/web), the user will get a notification asking to approve node to present notifications:\
 <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-notification-request.png?raw=true">
 <br />
 The following global options are not available in this template:\
-icon_file, system_icon,  buttons, width, height, window_size, allow_quit, no_return, focus and scrollable_text.\
+icon_file, system_icon,  buttons, width, height, window_size, allow_quit, no_return, focus and scrollable_text.
 
 | macOS Big Sur | macOS Catalina |
 | --- | --- |
