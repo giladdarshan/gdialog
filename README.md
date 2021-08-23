@@ -64,7 +64,7 @@ Example:
 - [File Select](#file-select)
 - [File Save](#file-save)
 - [Banner Box](#banner-box)
-- [Notification](#notification-box)
+- [Notification](#notification)
 
 
 ### Global Options
