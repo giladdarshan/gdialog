@@ -1,0 +1,16 @@
+{
+  "name": "gdialog",
+  "version": "1.0.3",
+  "description": "Native macOS Dialogs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Gilad Darshan (gilad@activedesign.co.il)",
+  "license": "MIT",
+  "homepage": "https://github.com/giladdarshan/gdialog/blob/main/README-NPM.md",
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "node-addon-api": "^3.0.2"
+  }
+}

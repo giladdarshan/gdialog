@@ -12,7 +12,8 @@ Supported on:
 * macOS Big Sur (11.x) - Intel or M1 with Rosetta
 
 ### Current Status
-gDialog is available as a [Node.js module](https://npmjs.com/package/gdialog) and as a [standalone application](https://github.com/giladdarshan/gdialog).
+gDialog is available as a Node.js module and as a [standalone application](https://github.com/giladdarshan/gdialog).\
+**NOTE:** NPM Package is currently pending publish to registry.
 
 ### Installing gDialog
 Install the gDialog package with the command:
@@ -566,3 +567,4 @@ console.log(dialog.runSync(options));
 | Key | Value (Example) | Description |
 | --- | --- | --- |
 | dont_wait | true | Don't wait for for the notification to be seen by the user |
+
