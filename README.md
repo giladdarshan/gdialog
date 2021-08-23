@@ -56,7 +56,7 @@ Example:
 - [Message Box](#message-box)
 - [Input Box](#input-box)
 - [Secure Input Box](#secure-input-box)
-- [Text Box](#text-box)
+- [Text Box](#text-box) - macOS Big Sur+
 - [Credentials Box](#credentials-box)
 - [HTML Box](#html-box)
 - [Progress Bar](#progress-bar)
@@ -142,7 +142,8 @@ Command Example:
 <img align="right" width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-textbox.png?raw=true">
 
 Template Name is ***textbox***.\
-Displays a text box.
+Displays a text box.\
+**NOTE:** Supported only on macOS Big Sur and above.
 <br /><br /><br /><br /><br /><br /><br />
 
 Command Example:
