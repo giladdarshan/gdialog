@@ -1,5 +1,5 @@
 # gDialog
-Display macOS dialogs from terminal and scripts, capable of displaying advanced dialogs and forms using the *HTML Box* template.
+Display macOS dialogs from terminal and scripts, capable of displaying advanced dialogs and forms using the different templates.
 <br />
 
 gDialog is using the system color scheme, if the Mac has Dark Mode turned on, the background will be dark, if Dark Mode is turned off, the background will be bright.
@@ -12,10 +12,10 @@ Supported on:
 * macOS Big Sur (11.x) - Intel or M1 with Rosetta
 
 ### Current Status
-gDialog is now in production release.
+gDialog is available as a standalone application and as a [Node.js module](https://github.com/giladdarshan/gdialog/blob/main/README-NPM.md).
 
 ### Downloading gDialog
-[Download gDialog v1.0.0](https://github.com/giladdarshan/gdialog/releases/download/v1.0.0/gDialog_v1.0.0.pkg)
+[Download gDialog v1.0.1](https://github.com/giladdarshan/gdialog/releases/download/v1.0.1/gDialog_v1.0.1.pkg)
 
 ### Installing gDialog
 Download and install the package from the release page or from the link above.\
@@ -64,7 +64,7 @@ Example:
 - [File Select](#file-select)
 - [File Save](#file-save)
 - [Banner Box](#banner-box)
-- [Notification](#notification)
+- [Notification](#notification-box)
 
 
 ### Global Options
@@ -230,6 +230,10 @@ HTML Page Example:
 | --- | --- |
 | --html_b64 "HTML file in Base64" | HTML page encoded in a Base64 string |
 | --file "/path/to/html_file.html" | Path to the HTML file |
+| --base_path "/path/to/folder" | Base path of the running HTML, useful when using dynamic links to local files and images |
+| --url "https://github.com/giladdarshan/gdialog" | Displays the provided URL |
+| --kiosk | Displays the HTML dialog in a full screen kiosk mode, preventing the user from moving away or closing the dialog |
+| --normal_window | Displays the HTML dialog as a normal window with a menu bar, quit/resize/minimize buttons and a dock icon |
 
 <br /><br />
 ## Progress Bar
@@ -376,7 +380,7 @@ Command Example:
 | --with_directory "/starting/directory" | Starts the file select dialog showing the specified directory |
 | --with_extensions '["jpg", "png"]' | Limits file selection to specified file extensions. The string must be with a single quote (') on the outside and the file extension names surrounded with double quotes ("), if you require to use double quotes on the outside, escape the internal double quotes with a backslash (\\), for example: "[\\"jpg\\", \\"png\\"]" |
 | --packages_as_directories | Treats installation packages as directories |
-| --no_create_directories | Prevents the user from creating directories |
+| --dont_create_directories | Prevents the user from creating directories |
 
 <br /><br />
 ## Banner Box
@@ -404,16 +408,14 @@ Sends a notification to macOS's notification center.\
 The notification must be sent as the user, to do so, you can use the `launchctl asuser` command as shown in the example below.\
 Unless gDialog is pre-approved for notifications via the [MDM notifications payload](https://support.apple.com/guide/mdm/notifications-payload-settings-mdm46b6547ba/web), the user will get a notification asking to approve gDialog to present notifications:\
 <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-notification-request.png?raw=true">
-<br /><br />
+<br />
+The following global options are not available in this template:\
+icon_file, system_icon,  buttons, width, height, window_size, allow_quit, no_return, focus and scrollable_text.\
+
 | macOS Big Sur | macOS Catalina |
 | --- | --- |
 | <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-notification-bigsur.png?raw=true"> | <img width="350" src="https://github.com/giladdarshan/gdialog/blob/main/assets/gdialog-notification-catalina.png?raw=true"> |
-
-<br />
-The following global options are not available in this template:<br />
-icon_file, system_icon,  buttons, width, height, window_size, allow_quit, no_return, focus and scrollable_text.
-<br /><br />
-
+ 
 Command Example:
 ```
 USER_UID=$(id -u $(stat -f%Su /dev/console))
